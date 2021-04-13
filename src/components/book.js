@@ -6,6 +6,9 @@ export default function Book(props) {
     const [shelf, setshelf] = useState(props.book.shelf)
 
     React.useEffect(() => {
+        if(shelf == null) {
+            setshelf('none');
+        }
         props.book.shelf = shelf;
         setBook(props.book);
         

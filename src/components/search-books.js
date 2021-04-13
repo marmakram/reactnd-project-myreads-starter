@@ -50,17 +50,21 @@ class SearchBook extends React.Component {
         this.setState({
             isLoading: true
         })
-        if(query === '') {
-            this.getAllBooks();
-            return;
-        }
         search(query).then(books => {
-            if (books === null || books.error) {
+            if (books === undefined || books.error) {
                 this.setState({
                     allBooks: []
                 })
             }
             if (Array.isArray(books)) {
+                books.forEach(element => {
+                    let shelfed = this.state.allBooks.filter(a => a.id === element.id);
+                    if(shelfed != null && shelfed.length > 0){
+                        debugger;
+                        element.shelf = shelfed[0].shelf;
+                    }
+                });
+                
                 this.setState({
                     allBooks: books
                 })

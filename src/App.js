@@ -1,5 +1,5 @@
 import React from 'react'
-import {  SearchBook, NotFound } from './components/main';
+import {  SearchBook } from './components/main';
 import Loader from "react-loader-spinner";
 import { update } from './BooksAPI';
 
@@ -12,8 +12,9 @@ class BooksApp extends React.Component {
     isLoading: false
   }
   handleSearchShelf = (book, shelf) => {
+    debugger;
     update(book, shelf).then(a => {
-      //debugger
+      debugger
     })
   };
   render() {
@@ -33,8 +34,6 @@ class BooksApp extends React.Component {
               <Switch>
                 <Route path="/search" render={() => <SearchBook onChangeSearch={this.handleSearchShelf} />} />
                 <Route exact path="/" component={Home} />
-                <Route path="/" component={NotFound} />
-                {/* this is used to pass props to link */}
               </Switch>
             </BrowserRouter>
           </div>
