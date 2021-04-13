@@ -16,28 +16,14 @@ export default class Home extends React.Component {
     }
 
     handleChangeShelf = (book, shelf) => {
-        debugger
         update(book, shelf).then(a => {
-            debugger
             this.setState({
                 displayedCurrentlyReadingBooks: this.state.allBooks.filter(x => a.currentlyReading.includes(x.id)),
                 displayedWantToReadBooks: this.state.allBooks.filter(x => a.wantToRead.includes(x.id)),
                 displayedReadBooks: this.state.allBooks.filter(x => a.read.includes(x.id))
             });
-            if (book.shelf === 'currentlyReading') {
-
-            }
-            if (book.shelf === 'wantToRead') {
-                this.setState({
-                });
-            }
-            if (book.shelf === 'wantToRead') {
-                this.setState({
-                });
-            }
 
         });
-        console.log('handlee', shelf);
     }
 
     getAllBooks() {

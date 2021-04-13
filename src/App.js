@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
   }
   handleSearchShelf = (book, shelf) => {
     update(book, shelf).then(a => {
-      debugger
+      //debugger
     })
   };
   render() {

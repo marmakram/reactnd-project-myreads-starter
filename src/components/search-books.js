@@ -13,7 +13,6 @@ class SearchBook extends React.Component {
     }
     constructor(props) {
         super(props);
-        debugger;
         this.state.onChangeSearch = props.onChangeSearch;
         this.goBack = this.goBack.bind(this); // i think you are missing this
     }
